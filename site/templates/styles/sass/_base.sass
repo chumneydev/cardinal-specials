@@ -1,0 +1,253 @@
+#container
+<<<<<<< HEAD
+    display: grid
+    grid-template-areas: "header header header" "sidebar content activity"
+    grid-template-columns: 250px 1fr 250px
+    grid-template-rows: auto 1fr
+    height: 100vh
+    gap: 0px
+    column-gap: 20px
+
+    & h2
+        font-family: $roboto
+        padding: 0
+        letter-spacing: 2px
+
+#header
+    grid-area: header
+    background: $light-blue
+    min-height: 60px
+    //position: fixed
+    //width: 100%
+=======
+    width: 100%
+
+
+#header
+    background: #FFFFFF
+    width: 100%
+    min-height: 60px
+    border-bottom: 1px solid #e9e9ea
+>>>>>>> parent of 54a57b4... created simple dashboard
+
+    & #notifications
+        margin: 15px 20px 0 0
+        float: right
+
+        & li
+            display: inline
+<<<<<<< HEAD
+            color: $white
+            padding: 0 15px
+=======
+            padding: 0 10px
+
+
+        & a
+            padding: 10px 20px
+            text-decoration: none
+            color: #FFFFFF
+            background: #006dab
+            -webkit-border-radius: 6px
+            -moz-border-radius: 6px
+            border-radius: 6px
+            -webkit-box-shadow:
+            0 6px 10px 0 rgba(0,0,0,0.14),
+            0 1px 18px 0 rgba(0,0,0,0.12),
+            0 3px 15px -1px rgba(0,0,0,0.2)
+            -moz-box-shadow:
+            0 6px 10px 0 rgba(0,0,0,0.14),
+            0 1px 18px 0 rgba(0,0,0,0.12),
+            0 3px 15px -1px rgba(0,0,0,0.2)
+            box-shadow:
+            0 6px 10px 0 rgba(0,0,0,0.14),
+            0 1px 18px 0 rgba(0,0,0,0.12),
+            0 3px 15px -1px rgba(0,0,0,0.2)
+>>>>>>> parent of 54a57b4... created simple dashboard
+
+            & .icon-expand
+                font-size: 1.8em
+
+#content
+    grid-area: content
+    display: grid
+    grid-template-areas: "information" "services"
+    grid-template-rows: 150px 1fr
+    grid-gap: 20px
+
+    & #information
+        grid-area: information
+        display: grid
+        grid-template-areas: "pane pane pane pane"
+        grid-template-columns: 1fr 1fr 1fr 1fr
+        grid-template-rows: 1fr
+        grid-gap: 20px
+
+        & .one
+            grid-area: pane
+            grid-column: 1
+            background: $dark-grey
+        & .two
+            grid-area: pane
+            grid-column: 2
+            background: $dark-grey
+        & .three
+            grid-area: pane
+            grid-column: 3
+            background: $dark-grey
+        & .four
+            grid-area: pane
+            grid-column: 4
+            background: $dark-grey
+
+    & #services
+        grid-area: services
+        display: grid
+        grid-template-areas: "specials modals staff"
+        grid-template-columns: 1fr 1fr 1fr
+        grid-template-rows: 1fr 1fr
+        grid-gap: 20px
+
+        & h2
+            padding: 10px
+            background: $light-grey
+<<<<<<< HEAD
+        & h3
+            letter-spacing: 2px
+            padding: 10px 10px 5px 10px
+        & .list
+            list-style: none
+            & li:first-of-type
+                margin: 0
+            & li
+                position: relative
+                margin: 10px 0
+
+                & a
+                    text-indent: 10px
+                    padding: 10px 0
+                    display: block
+                    text-decoration: none
+                & .count
+                    position: absolute
+                    right: 10px
+                    top: 3px
+                    & .fa-layers-text
+                        color: $red
+
+                &.running
+                    color: $white
+                    background: #383838
+                    & a
+                        color: $white
+                &:hover
+                    background: darken(#383838, 10%)
+                    transition: all .3s ease
+
+                &.expired
+                    color: $white
+                    background: #858585
+                    & a
+                        color: $white
+                    &:hover
+                        background: darken(#858585, 10%)
+                        transition: all .3s ease
+
+                    & .fa-exclamation-circle
+                        color: $red
+                        font-size: $font-x-large
+                        position: absolute
+                        right: -5px
+                        top: -5px
+
+
+=======
+>>>>>>> parent of 8ad859d... grey scale scaffold dashboard
+
+        & #specials
+            grid-area: specials
+            background: $white
+            padding: 20px
+
+        & #modals
+            grid-area: modals
+            background: $white
+            padding: 20px
+
+        & #staff
+            grid-area: staff
+            background: $white
+            padding: 20px
+
+
+
+#activity
+    grid-area: activity
+    background: #ff655c
+    padding: 20px
+    color: $white
+    & h2
+        background: none
+        color: $white
+    & li
+        list-style: none
+        font-size: $font-small
+        padding: 10px 0
+        line-height: 120%
+        & .fa-exclamation-circle
+            margin: 0 5px 0 0
+
+
+
+
+#sidebar
+<<<<<<< HEAD
+    grid-area: sidebar
+    padding: 20px
+    background: $white
+
+    & .welcome
+        padding: 20px
+        background: $light-grey
+        & p
+            padding: 0
+
+
+
+    & ul
+        padding: 0 0 0 0
+        list-style: none
+        font-size: $font-small
+
+        & li
+            padding: 3px 0
+            letter-spacing: .5px
+
+            & a
+                text-decoration: none
+                color: $light-blue
+                font-size: $font-medium
+                transition: all .3s ease
+
+                &:hover
+                    color: $dark-blue
+                    border-bottom: 2px solid $dark-blue
+                    letter-spacing: 2px
+                    transition: all .3s ease
+.special
+=======
+    float: left
+    color: #FFFFFF
+    width: 15%
+    height: 100vh
+    background: #565554
+
+
+
+
+#content
+    float: left
+    width: 85%
+    height: 100vh
+
+>>>>>>> parent of 54a57b4... created simple dashboard

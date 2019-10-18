@@ -1,0 +1,379 @@
+*
+    font-family: $roboto
+
+#container
+    position: relative
+    & h2
+        font-family: $roboto
+        padding: 0
+        letter-spacing: 2px
+
+#header
+    min-height: 40px
+    background: $white
+    border-bottom: 1px solid $light-grey
+    & #login
+        padding: 0 30px
+        background: $light-blue
+        float: left
+        width: 12%
+        color: $white
+
+        & p
+            text-align: center
+            padding: 10px 0
+
+    & .actions
+        float: left
+        & li
+            display: inline
+
+#sidebar
+    vertical-align: top
+    display: inline-block
+    width: 12%
+    height: -webkit-fill-available
+    height: -moz-fill-available
+    height: fill-available
+    margin-top: 0
+    padding: 0 30px
+    background: $white
+    border-right: 1px solid $light-grey
+    //-webkit-border-radius: 5px
+    //-moz-border-radius: 5px
+    //border-radius: 5px
+
+    & h4
+        display: inline-block
+        font-weight: 200
+        font-size: 20px
+        margin-top: 20px
+
+    & ul
+        margin-top: 10px
+        list-style: none
+
+    & li
+        margin: 4px 0
+        letter-spacing: 1px
+        transition: all 0.2s ease
+
+        &:hover
+            letter-spacing: 2px
+            transition: all 0.2s ease
+
+    & .fa-stack
+        float: right
+        margin: 14px 0 0 0
+        & [data-icon="circle"]
+            color: $light-green
+            cursor: pointer
+            //box-shadow: 0 8px 15px rgba(0,0,0,0.10), 0 10px 10px rgba(0,0,0,0.4)
+            filter: drop-shadow(0 8px 8px rgba(0,0,0,0.20))
+        & [data-icon="plus"]
+            color: $white
+
+    & a
+        text-decoration: none
+        color: $light-blue
+
+    & .notification
+        color: $white
+        position: relative
+        margin: 10px 0
+        padding: 10px
+        background: $light-blue
+        -webkit-border-radius: 4px
+        -moz-border-radius: 4px
+        border-radius: 4px
+        & h4
+            font-size: 16px
+            margin: 0
+            padding: 0
+            & [data-icon="paper-plane"]
+                margin: 0 5px 0 0
+
+        & p
+            padding: 5px 0 0 0
+            letter-spacing: 1px
+            font-size: $font-small
+        & .fa-stack
+            margin: 0
+            position: absolute
+            top: 2px
+            right: 2px
+
+        & [data-icon="circle"]
+            color: $light-red
+            filter: drop-shadow(0 8px 8px rgba(0,0,0,0.20))
+
+        & [data-icon="minus"]
+            color: $white
+
+
+
+#content
+  display: inline-block
+
+  #specials
+    padding: 0 20px
+
+    & h2
+        font-size: 26px
+        font-weight: 200
+        margin: 10px 0
+
+.item
+    min-width: 300px
+    width: 100%
+    margin: 10px 0
+    padding: 10px
+    border: 1px solid $light-grey
+    background: #ffffff
+    border-radius: 5px
+
+    & h3
+        display: inline-block
+        margin: 0 0 15px 0
+        font-weight: 200
+        font-size: 20px
+        letter-spacing: 1.5px
+    & [data-page-status="unpublished"]
+        text-decoration: line-through !important
+
+    & .fa-stack
+        float: right
+        & [data-icon="circle"]
+            float: right
+            color: $light-green
+            cursor: pointer
+            filter: drop-shadow(0 8px 8px rgba(0,0,0,0.20))
+        & [data-icon="plus"]
+            color: $white
+
+
+
+
+.item-item h4
+    display: inline-block
+    margin: 5px 15px 5px 0
+    font-size: 16px
+    font-weight: 200
+    letter-spacing: 2px
+    color: $light-blue
+
+    & ul
+        list-style: none
+
+// probably needs to be aligned just to the right of the specials so they dont have to scroll
+.item-actions
+    margin-top: 5px
+
+    & li
+        padding: 0 5px
+        display: inline
+
+        & a
+            color: lighten($light-blue, 32%)
+            &:hover
+                color: $light-blue
+
+
+
+
+// button colors
+.primary
+    padding: 10px 20px
+    //display: block
+    font-family: $roboto
+    font-size: $font-small
+    letter-spacing: 2px
+    text-decoration: none
+    text-transform: uppercase
+    color: $white
+    -webkit-border-radius: 4px
+    -moz-border-radius: 4px
+    border-radius: 4px
+    box-shadow: 0 8px 15px rgba(0,0,0,0.10), 0 10px 10px rgba(0,0,0,0.05)
+    background: linear-gradient(to right, #0069ea 50%, #2584fd 50%)
+    background-size: 200% 100%
+    background-position: right bottom
+    transition: all .3s ease-out
+    &:hover
+        background-position: left bottom
+
+.add
+    padding: 10px 20px
+    //display: block
+    font-family: $roboto
+    font-size: $font-small
+    letter-spacing: 2px
+    text-decoration: none
+    text-transform: uppercase
+    color: $white
+    -webkit-border-radius: 4px
+    -moz-border-radius: 4px
+    border-radius: 4px
+    box-shadow: 0 8px 15px rgba(0,0,0,0.10), 0 10px 10px rgba(0,0,0,0.05)
+    background: linear-gradient(to right, #00b287 50%, #00cc9b 50%)
+    background-size: 200% 100%
+    background-position: right bottom
+    transition: all .3s ease-out
+    &:hover
+        background-position: left bottom
+
+.pause
+    padding: 10px 20px
+    //display: block
+    font-family: $roboto
+    font-size: $font-small
+    letter-spacing: 2px
+    text-decoration: none
+    text-transform: uppercase
+    color: $white
+    -webkit-border-radius: 4px
+    -moz-border-radius: 4px
+    border-radius: 4px
+    box-shadow: 0 8px 15px rgba(0,0,0,0.10), 0 10px 10px rgba(0,0,0,0.05)
+    background: linear-gradient(to right, #efb717 50%, #ffc116 50%)
+    background-size: 200% 100%
+    background-position: right bottom
+    transition: all .3s ease-out
+    &:hover
+        background-position: left bottom
+
+.delete
+    padding: 10px 20px
+    //display: block
+    font-family: $roboto
+    font-size: $font-small
+    letter-spacing: 2px
+    text-decoration: none
+    text-transform: uppercase
+    color: $white
+    -webkit-border-radius: 4px
+    -moz-border-radius: 4px
+    border-radius: 4px
+    box-shadow: 0 8px 15px rgba(0,0,0,0.10), 0 10px 10px rgba(0,0,0,0.05)
+    background: linear-gradient(to right, #d14f44 50%, #ff6360 50%)
+    background-size: 200% 100%
+    background-position: right bottom
+    transition: all .3s ease-out
+    &:hover
+        background-position: left bottom
+
+// Just some css for dev testing on the dashboard
+#dev
+    //min-width: 400px
+    //min-height: 50px
+    margin: 20px
+    //padding: 20px
+    //border: 1px solid $light-blue
+    //background: lighten($light-blue, 40%)
+
+#alerts
+    min-width: 350px
+    position: absolute
+    right: 0
+    top: 0
+    background: $light-red
+    color: $white
+    padding: 20px
+
+    & h4
+        font-family: $roboto
+        letter-spacing: 4px
+        text-decoration: underline
+        padding: 0
+        margin: 0
+
+    & ul
+        margin: 5px 0 5px 20px !important
+        font-size: $font-small
+        & li
+            font-family: $roboto
+            letter-spacing: 1px
+            padding: 2px 0
+            &.completed
+                text-decoration: line-through
+
+#demo
+    width: 100%
+    min-height: 100px
+    background: lighten($light-red, 20%)
+    border: 1px solid $light-red
+
+
+
+
+#create
+    margin: 100px auto 0 auto
+    width: 900px
+    padding: 20px
+    min-height: 100px
+    background: $white
+    border: 1px solid $light-grey
+    -webkit-border-radius: 4px
+    -moz-border-radius: 4px
+    border-radius: 4px
+    box-shadow: 0 8px 15px rgba(0,0,0,0.10), 0 10px 10px rgba(0,0,0,0.05)
+
+
+
+    /** float container */
+
+    & .field
+        display: flex
+        flex-flow: column-reverse
+        margin-bottom: 1em
+
+    & label, input
+        transition: all 0.2s
+        touch-action: manipulation
+
+
+    & input
+        font-size: 1.5em
+        border: 1px solid $light-grey
+        font-family: inherit
+        -webkit-appearance: none
+        -webkit-border-radius: 4px
+        -moz-border-radius: 4px
+        border-radius: 4px
+        padding: 0
+        cursor: text
+
+
+        &:focus
+            outline: 0
+
+
+    & label
+        text-transform: uppercase
+        letter-spacing: 0.05em
+
+
+    & input:placeholder-shown + label
+        cursor: text
+        max-width: 66.66%
+        white-space: nowrap
+        overflow: hidden
+        text-overflow: ellipsis
+        transform-origin: left bottom
+        transform: translate(0, 2.125rem) scale(1.5)
+
+    & ::-webkit-input-placeholder
+        opacity: 0
+        transition: inherit
+
+    & input:focus::-webkit-input-placeholder
+        opacity: 1
+
+    & input:not(:placeholder-shown) + label, input:focus + label
+        transform: translate(0, 0) scale(1)
+        cursor: pointer
+
+
+
+
+

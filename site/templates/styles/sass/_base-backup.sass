@@ -1,0 +1,182 @@
+#container
+    display: grid
+    grid-gap: 0
+    grid-template-columns: 1fr 6fr
+    grid-template-areas: "sidebar content"
+
+h2
+    letter-spacing: 2px
+    font-family: $roboto
+
+li
+    font-family: $roboto
+
+#login
+    display: grid
+    grid-gap: 0
+    grid-template-columns: 1fr 1fr 1fr
+    grid-template-areas: "register register register"
+    justify-items: center
+
+#LoginRegister
+    grid-area: register
+    padding: 10px
+    background: $white
+    border: 1px solid $light-grey
+
+
+#sidebar
+    grid-area: sidebar
+    padding: 20px
+    color: $white
+    height: 100vh
+    background: $light-blue
+
+    & h2
+        color: $dark-blue
+        font-size: $font-large
+        font-family: $roboto
+        padding: 0 0 5px 0
+
+    & ul
+        padding: 0 0 0 0
+        list-style: none
+        font-size: $font-small
+
+        & li
+            padding: 3px 0
+            letter-spacing: .5px
+
+            & a
+              text-decoration: none
+              color: $white
+              font-size: $font-medium
+              transition: all .3s ease
+
+              &:hover
+                color: $dark-blue
+                border-bottom: 2px solid $dark-blue
+                letter-spacing: 2px
+                transition: all .3s ease
+
+
+    & .welcome
+        position: relative
+        font-size: $font-large
+        margin: 0 0 10px
+        background: $dark-blue
+
+        & .fa-bell
+            position: absolute
+            right: 10px
+            top: 13px
+            font-size: $font-large
+            color: $red
+
+#header
+    grid-area: header
+    background: $white
+    border-bottom: 1px solid $light-grey
+    display: grid
+    grid-gap: 20px
+    grid-template-columns: 1fr 1fr 1fr
+    grid-template-rows: 1fr
+    grid-template-areas: "search user actions"
+
+    & .search
+        padding: 10px 10px
+        grid-area: search
+
+        & input
+            font-size: $font-large
+            width: 100%
+            padding: 10px
+
+    & ul.actions
+        grid-area: actions
+        padding: 20px 0 0 0
+
+
+        & li
+            display: inline
+            padding: 0 5px
+
+
+        & a
+            font-size: $font-small
+            padding: 10px 20px
+            text-decoration: none
+            color: $white
+            background: $light-grey
+            -webkit-border-radius: 6px
+            -moz-border-radius: 6px
+            border-radius: 6px
+            -webkit-box-shadow:
+            0 6px 10px 0 rgba(0,0,0,0.14),
+            0 1px 18px 0 rgba(0,0,0,0.12),
+            0 3px 15px -1px rgba(0,0,0,0.2)
+            -moz-box-shadow:
+            0 6px 10px 0 rgba(0,0,0,0.14),
+            0 1px 18px 0 rgba(0,0,0,0.12),
+            0 3px 15px -1px rgba(0,0,0,0.2)
+            box-shadow:
+            0 6px 10px 0 rgba(0,0,0,0.14),
+            0 1px 18px 0 rgba(0,0,0,0.12),
+            0 3px 15px -1px rgba(0,0,0,0.2)
+
+        & a.add
+            background: #00d1a4
+            &:hover
+                background: darken($green, 15%)
+        & a.pause
+            background: #ffcc2b
+            &:hover
+                background: darken($yellow, 15%)
+        & a.delete
+            background: #ff224a
+            &:hover
+                background: darken($red, 15%)
+
+
+
+#content
+    grid-area: content
+    height: 100vh
+    display: grid
+    grid-template-areas: "header header header" "specials modals staff"
+    grid-template-columns: 1fr 1fr 1fr
+    grid-template-rows: 1fr 9fr
+    grid-gap: 20px
+
+
+.specials
+    grid-area: specials
+    padding: 10px
+
+.modals
+    grid-area: modals
+    padding: 10px
+
+.staff
+    grid-area: staff
+    padding: 10px
+
+.inner
+    padding: 10px
+    background: $white
+    border: 1px solid $light-grey
+    & h2
+        padding: 10px
+        font-size: $font-large
+        background: $off-white
+    & ul
+        margin: 0 0 0 20px
+        padding: 2px 0 10px 0
+        list-style: none
+
+        & li
+          margin: 5px 0
+
+        & ul li
+            color: $dark-blue
+            font-size: $font-small

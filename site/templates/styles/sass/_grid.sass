@@ -1,0 +1,58 @@
+// based on Smart Grid
+// https://vladocar.github.io/SMART-CSS-GRID/
+
+//.main
+    margin: 0 auto
+    width: 960px
+    display: grid
+    grid-gap: 10px
+    grid-template-columns: repeat(12, calc(8.333% - 10px))
+
+
+.ca-one
+    grid-column: auto / span 1
+.ca-two
+    grid-column: auto / span 2
+.ca-three
+    grid-column: auto / span 3
+.ca-four
+    grid-column: auto / span 4
+.ca-five
+    grid-column: auto / span 5
+.ca-six
+    grid-column: auto / span 6
+.ca-seven
+    grid-column: auto / span 7
+.ca-eight
+    grid-column: auto / span 8
+.ca-nine
+    grid-column: auto / span 9
+.ca-ten
+    grid-column: auto / span 10
+.ca-eleven
+    grid-column: auto / span 11
+.ca-twelve
+    grid-column: auto / span 12
+
+.merge-two-rows
+    grid-row: auto / span 2
+.merge-three-rows
+    grid-row: auto / span 3
+.merge-four-rows
+    grid-row: auto / span 4
+.merge-five-rows
+    grid-row: auto / span 5
+.merge-six-rows
+    grid-row: auto / span 6
+
+.nested
+    display: grid
+    grid-gap: 10px
+    grid-template-columns: repeat(12, calc(8.333% - 10px))
+
+@media only screen and (max-width: 480px)
+    .main
+        width: 100%
+    .ca-one,.ca-two,.ca-three,.ca-four,.ca-five,.ca-six,.ca-seven,.ca-eight,.ca-nine,.ca-ten,.ca-eleven
+        grid-column: auto / span 12
+

@@ -1,0 +1,17 @@
+@import url("https://fonts.googleapis.com/css?family=Roboto:400,700");
+* {
+  margin: 0;
+  padding: 0; }
+
+body {
+  font-family: Helvetica, Arial, sans-serif;
+  background: #f5f6fa;
+  position: relative; }
+
+p {
+  padding: 10px; }
+
+/*********************************************************************
+ * 5. Media queries for responsive layout
+ *
+ */

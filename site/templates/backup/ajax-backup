@@ -1,0 +1,48 @@
+<?php namespace ProcessWire;
+
+if ($config->ajax && $input->urlSegment1 == 'create-client') {
+    $p = new Page();
+    $p->template = "clients";
+    $p->parent = $pages->get('/clients/');
+    $p->name = "demo";
+    $p->title = "DEMO";
+    $p->assigned_to = $user;
+    $p->of(false);
+    $p->save();
+
+} elseif($config->ajax && $input->urlSegment == 'notification-delete'){
+
+} elseif($config->ajax && $input->urlSegment == 'special-add'){
+
+} elseif($config->ajax && $input->urlSegment == 'special-pause'){
+
+    //$parentPage = $santizer->text($_POST('parentId'));
+    //$specialPage = $santizer->text($_POST['specialId']);
+    $specialPage = $sanitizer->text($_POST['specialId']);
+
+
+    $checkedPage = $pages->get("$specialPage");
+        $checkedPage->addStatus(Page::statusHidden);
+        $checkedPage->save();
+
+} elseif($config->ajax && $input->urlSegment == 'special-delete'){
+
+} elseif($config->ajax && $input->urlSegment == 'special-edit'){
+
+} elseif($input->urlSegment == 'render-specials'){
+    $query = [
+        'title'
+    ];
+
+    $pages->find("template=basic-page")->pageQueryJson($query);
+
+
+} elseif($config->ajax && $input->urlSegment == ''){
+
+}
+
+else{}
+
+
+
+?>

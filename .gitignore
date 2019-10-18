@@ -1,0 +1,14 @@
+/src/flex/
+node_modules/
+./gulpfile.js
+gulpfile.js
+wire/
+site/modules/
+site/assets
+site/init.php
+.htaccess
+composer.json
+index.php
+CONTRIBUTING.md
+LICENSE.TXT
+site/config.php
