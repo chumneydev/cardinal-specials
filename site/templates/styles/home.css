@@ -1,0 +1,48 @@
+body {
+  position: relative;
+}
+
+.small {
+  float: right !important;
+  width: 80% !important;
+}
+
+.medium {
+  float: right;
+  width: 90% !important;
+}
+
+.demo {
+  background: #BEE3F8;
+}
+
+.demo p {
+  padding: 10px;
+}
+
+#sidebar {
+  width: 10%;
+  padding: 20px;
+  position: fixed;
+  font-family: Helvetica;
+}
+
+#sidebar ul {
+  margin: 0;
+  padding: 0;
+  text-align: center;
+}
+
+#sidebar ul li {
+  list-style: none;
+  padding: 10px 0;
+}
+
+#sidebar ul li a {
+  color: #FFFFFF;
+  display: block;
+  padding: 10px 0;
+  text-decoration: none;
+  background: #CBD5E0;
+  border-radius: 6px;
+}

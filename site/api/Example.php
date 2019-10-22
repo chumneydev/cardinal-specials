@@ -49,6 +49,7 @@ public static function getModal($data)
             "closeOnOverlay" => $modal->modal_overlay_close->value,
             "OverlayColor" => $modal->modal_overlay_color->title,
             "width" => $modal->modal_width,
+            "url" => $modal->httpUrl,
             //"content" => $modal->views,
         ]);
 

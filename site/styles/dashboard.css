@@ -1,0 +1,33 @@
+body {
+  background: #FFFFFF;
+}
+
+.dev {
+  color: #FFFFFF;
+  text-align: center;
+  background: #4A5568;
+}
+
+.dev2 {
+  background: #4bff97;
+}
+
+img {
+  max-width: auto;
+  width: 100%;
+  display: block;
+}
+
+@media screen and (max-width: 768px) {
+  section {
+    margin: 0 !important;
+  }
+  section .column {
+    flex: 1 1 100%;
+    padding: 0;
+    margin: 5px 0;
+  }
+  section.two .column {
+    flex: 1 1 0;
+  }
+}

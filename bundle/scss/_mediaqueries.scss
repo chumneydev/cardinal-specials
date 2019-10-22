@@ -1,0 +1,23 @@
+@media screen and (max-width: 768px)  {
+
+    section {
+        margin: 0 !important;
+
+        & .column {
+            flex: 1 1 100%;
+            padding: 0;
+            margin: 5px 0;
+        }
+
+        &.two {
+            & .column {
+                flex: 1 1 0;
+            }
+        }
+
+
+
+    }
+
+
+}

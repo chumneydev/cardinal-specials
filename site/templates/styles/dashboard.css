@@ -1,0 +1,53 @@
+body {
+  padding: 0;
+  font-family: Helvetica;
+  background: #e7f6fe;
+}
+
+.dev {
+  background: #ffbe0f;
+}
+
+p {
+  font-size: 13px;
+}
+
+#container {
+  max-width: 1800px;
+  margin: 10px auto;
+  padding: 10px;
+  min-height: 700px;
+  background: #2d3748;
+  border-radius: 40px;
+  display: grid;
+  gap: 20px;
+  grid-template-columns: 1fr 2fr;
+  grid-template-rows: 1fr;
+  grid-template-areas: "sidebar main";
+}
+
+#sidebar {
+  grid-area: sidebar;
+  padding: 20px;
+}
+
+#main {
+  grid-area: main;
+  padding: 20px;
+  background: #FFFFFF;
+  border-radius: 35px;
+}
+
+@media screen and (max-width: 768px) {
+  section {
+    margin: 0 !important;
+  }
+  section .column {
+    flex: 1 1 100%;
+    padding: 0;
+    margin: 5px 0;
+  }
+  section.two .column {
+    flex: 1 1 0;
+  }
+}
