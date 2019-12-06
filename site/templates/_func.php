@@ -454,7 +454,12 @@ class person {
 function checkGrid($gridCount = '') {
     $out = '';
     if($gridCount < 12) {
-        $out .= "<div class='uk-clearfix uk-visible-small'></div>";
+        $out .= "<div class='column'></div>";
+
+    }
+
+    elseif($gridCount >= 12) {
+        $out .= "<section></section>";
 
     }
     return $out;

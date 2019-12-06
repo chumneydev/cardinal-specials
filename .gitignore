@@ -5,8 +5,14 @@ gulpfile.js
 wire/
 site/modules/
 site/assets
+bundle/scss/fontawesome
+bundle/scss/webfonts
+
 site/init.php
 .htaccess
+.index-3.0.130.php
+.wire-*
+htaccess-3.0.143.txt
 composer.json
 index.php
 CONTRIBUTING.md

@@ -38,7 +38,7 @@ public static function getModal($data)
         array_push($response->modal, [
             "client" => $modal->parent->parent->name,
             "id" => $modal->id,
-            "name" => $modal->title,
+            "name" => $modal->name,
             "color" => $modal->client_color->title,
             "buttonText" => $modal->modal_button_text,
             "cookieAmount" => $modal->modal_cookie,
@@ -53,11 +53,11 @@ public static function getModal($data)
             //"content" => $modal->views,
         ]);
 
-        foreach($modal->views as $view) {
+        /*foreach($modal->views as $view) {
             array_push($response->modal, [
                 'row' => $view->title,
             ]);
-        }
+        }*/
 
         return $response;
     }

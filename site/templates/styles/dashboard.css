@@ -1,7 +1,7 @@
 body {
   padding: 0;
   font-family: Helvetica;
-  background: #e7f6fe;
+  background: #EDF2F7;
 }
 
 .dev {
@@ -9,7 +9,7 @@ body {
 }
 
 p {
-  font-size: 13px;
+  font-size: 14px;
 }
 
 #container {
