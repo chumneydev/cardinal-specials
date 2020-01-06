@@ -91,34 +91,57 @@ header("Access-Control-Allow-Origin: *");
 
         <!-- Dynamic Button Row/Grid -->
 
+        <?php
+        $i = 0;
+        ?>
         <section class="ca-special">
-            <?php
-                $i = 0;
-            ?>
 
             <?php foreach ($page->specials as $special) : ?>
+
                 <?php
                 $startDate = $special->special_start_date;
                 $convertedStartDate = strtotime($startDate);
                 $expirationDate = $special->special_end_date;
                 $convertedExpirationDate = strtotime($expirationDate);
-
                 $specialId = 0;
                 // iteratator
-
-                if ($convertedStartDate <= $convertedToday && $convertedStartDate < $convertedExpirationDate && $convertedToday < $convertedExpirationDate) {
-                    include("./partials/specials/special.inc.php");
-                    $specialId++;
-                    $i++;
-                }
                 ?>
-                
-                <?php if($i % 2 == 0): ?>
-                    </section>
-                    <section class="ca-special">
-                <?php endif; ?>
 
-            <?php endforeach; ?>
+
+                <?php if ($page->special_layout_select->title == "Single") : ?>
+                    <?php
+                    if ($convertedStartDate <= $convertedToday && $convertedStartDate < $convertedExpirationDate && $convertedToday < $convertedExpirationDate) {
+                        include("./partials/specials/special.inc.php");
+                        $specialId++;
+                        $i++;
+                    }
+                    ?>
+
+                    <?php if ($i % 1 == 0) : ?>
+        </section>
+        <section class="ca-special">
+        <?php endif; ?>
+
+    <?php elseif ($page->special_layout_select->title == "Double") : ?>
+        <?php
+                    if ($convertedStartDate <= $convertedToday && $convertedStartDate < $convertedExpirationDate && $convertedToday < $convertedExpirationDate) {
+                        include("./partials/specials/special.inc.php");
+                        $specialId++;
+                        $i++;
+                    }
+        ?>
+
+        <?php if ($i % 2 == 0) : ?>
+        </section>
+        <section class="ca-special">
+
+        <?php endif; ?>
+    <?php endif; ?>
+
+
+
+
+<?php endforeach; ?>
         </section>
 
 
