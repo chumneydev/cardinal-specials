@@ -11,7 +11,7 @@
  */
 
 
- wire()->addHook("PageArray::groupBy", function(HookEvent $event) {
+ /*wire()->addHook("PageArray::groupBy", function(HookEvent $event) {
 	$out = array();
 
 	$args = $event->arguments();
@@ -44,7 +44,35 @@
 
 
 
+}); */
+
+// 01/02/20: Louis Stephens
+// Creates "Modals" and "Specials" pages when a new client is created
+$wire->addHookAfter('Pages::added(template=clients)', function(HookEvent $event) {
+    $page = $event->arguments(0);
+    $p = new Page();
+    $p->template = "groups";
+    $p->parent = wire('pages')->get($page->id);
+    $p->title = "Modals";
+    $p->name = "modals";
+    $p->save();
+//bd($page);
+
+    $p = new Page();
+    $p->template = "groups";
+    $p->parent = wire('pages')->get($page->id);
+    $p->title = "Specials";
+    $p->name = "specials";
+    $p->save();
+
+
 });
+
+
+
+
+
+
 
 // August 14th, 2019: keep this around
 /*$wire->addHookAfter('Pages::added(template=modals)', function(HookEvent $event) {

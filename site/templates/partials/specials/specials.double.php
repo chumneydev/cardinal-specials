@@ -1,82 +1,44 @@
 <?php
-	namespace ProcessWire;
-	header_remove("X-Frame-Options");
-	header("Access-Control-Allow-Origin: *");
+    namespace ProcessWire;
 ?>
 
+<div id="<?= $specialId; ?>" class="ca-special">
 
-
-
-
-<div class="ca-row">
-
-<?php foreach($page->specials as $content): ?>
-    <?php
-        $todaysDate = date("F j, Y g:i a");
-        $convertedTodaysDate = strtotime($todaysDate);
-
-        $startDate = $content->specials_start_date;
-        $convertedStartDate = strtotime($startDate);
-
-        $endDate = $content->specials_end_date;
-        $convertedEndDate = strtotime($endDate);
-    ?>
-
-	<?php if ($convertedStartDate <= $convertedTodaysDate && $convertedTodaysDate < $convertedEndDate): ?>
-        <div class="ca-col-6">
-            <div class="special cacoupon<?=$cacoupon; ?>">
-                <a href="<?=$content->specials_url; ?>" class="counter" data-parent="<?=$parentPage;?>" data-repeater="<?=$content->id;?>"><img src="<?=$content->specials_image->url; ?>" alt="<?=$content->specials_image->description; ?>" class="ca-image"/></a>
-            
-            <?php
-	            $buttons = $content->specials_buttons;
-	            $count = count($buttons);
-	            //echo $count;
-                if ($count == 1) {
-                $class = 12;
-                }else if ($count == 2) {
-		            $class = 6;
-	            } else if ($count == 3) {
-		            $class = 4;
-	            } else if ($count == 4) {
-		            $class = 3;
-	            }
-            	else {}
-            ?>
-            <div class="ca-row">
-                <?php foreach($content->specials_buttons as $button): ?>
-                    <?php if($button->specials_button_select->title === "Print"): ?>
-                        <div class="ca-col-<?=$class;?>"><a href="#" <?=$button->specials_button_url;?> class="ca-btn-demo"><?=$button->specials_button_select->title;?></a></div>
-
-                    <?php else: ?>
-                        <div class="ca-col-<?=$class;?>"><a href="<?=$button->specials_button_url;?>" class="ca-btn-demo"><?=$button->specials_button_select->title;?></a></div>
-                    <?php endif; ?>
-
-
-                <?php endforeach; ?>
+    <section>
+        <div class="column">
+            <div class="ca-print">
+                <img src="<?= $special->special_image->httpUrl; ?>" class="ca-print-image ca-image" />
+                <div class="ca-print-icon">
+                    <i class="ca-<?= $clientColor; ?> far fa-print" onClick="printJS({printable: '<?= $special->special_image->httpUrl; ?>', type: 'image'})"></i>
+                </div>
             </div>
         </div>
-    </div>
+    </section>
 
-	   <?php elseif ($convertedStartDate > $convertedTodaysDate): ?>
-            <div class="ca-col-6">
-            <p>The start date was set to <span><?=$startDate; ?>, and your special has not yet started.</p>
-            </div>
-
-
-        <?php elseif ($convertedTodaysDate >= $convertedEndDate): ?>
-            <div class="ca-col-6">
-            <p>The start date was set to <span><?=$startDate; ?>, and your special has not yet started.</p>
-            <p>The expiration date was set to <span><?=$endDate; ?>, and your special has expired.</p>
-            </div>
-
-
-
+    <!-- Begin Custom CTA Buttons for Specials -->
+    <section>
+        <?php if ($buttonsIncluded) : ?>
+            <?php foreach ($buttonsIncluded as $button) : ?>
+                <div class="column">
+                    <a href="<?= $button->special_custom_buttons_url; ?>" class="btn <?= $clientColor; ?>" target="_top"><?= $button->special_custom_buttons_text; ?></a>
+                </div>
+            <?php endforeach; ?>
         <?php endif; ?>
 
-        <?php $cacoupon++; ?>
-        <?php endforeach; ?>
+        <div class="column">
+            <a href="<?= $special->special_url; ?>" class="btn <?= $clientColor; ?>" target="_top">View Inventory</a>
+        </div>
+        <!-- End Dynamic CTA Buttons -->
+    </section>
 
+    <!-- if Disclaimer exists -->
+    <?php if ($special->special_disclaimer) : ?>
+        <section>
+            <div class="column">
+                <p class="disclaimer"><?= $special->special_disclaimer; ?></p>
+            </div>
+        </section>
+
+    <?php endif; ?>
 
 </div>
-
-<!-- Begin Specials -->

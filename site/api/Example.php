@@ -1,5 +1,8 @@
 <?php namespace ProcessWire;
 
+header_remove("X-Frame-Options");
+header("Access-Control-Allow-Origin: *");
+
 class Example
 { 
   public static function test () {

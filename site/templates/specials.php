@@ -1,29 +1,35 @@
 <?php
-    namespace ProcessWire;
-    header_remove("X-Frame-Options");
-    header("Access-Control-Allow-Origin: *");
+
+namespace ProcessWire;
+
+header_remove("X-Frame-Options");
+header("Access-Control-Allow-Origin: *");
 ?>
 
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
+
 <head>
-    <meta charset="utf-8">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title><?= $page->title; ?></title>
-    <link rel="stylesheet" type="text/css" media="all" href="https://theautohost.com/_cardinal/bundle/dist/css/cardinal.css" />
-    <link rel="stylesheet" type="text/css" href="<?= $config->urls->templates ?>styles/specials.css" />
+    <!--<link rel="stylesheet" type="text/css" media="all" href="https://theautohost.com/_cardinal/dist/css/cardinal.css" />-->
+    <link rel="stylesheet" type="text/css" media="all" href="http://192.168.12.3:8888/internal-projects/cardinal-grid/dist/css/cardinal.css" />
     <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.7.1/css/all.css" integrity="sha384-6jHF7Z3XI3fF4XZixAuSu0gGKrXwoX/w3uFPxC56OtjChio7wtTGJWRW53Nhx6Ev" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="<?= $config->urls->templates ?>styles/specials.css" />
+
 </head>
 
 <body>
 
     <?php
-        // global variables
-        $countSpecialButtons = count($page->special_custom_buttons->find('special_custom_buttons_include=1'));
-        $buttonsIncluded = $page->special_custom_buttons->find('special_custom_buttons_include=1');
-        $buttonsIncludedCount = count($page->special_custom_buttons->find('special_custom_buttons_include=1'));
-        $buttonsIncludedCountAdditional = $buttonsIncludedCount + 1;
-        $buttonCalculateRemainder =  12 / $buttonsIncludedCountAdditional;
+    // global variables
+    $countSpecialButtons = count($page->special_custom_buttons->find('special_custom_buttons_include=1'));
+    $buttonsIncluded = $page->special_custom_buttons->find('special_custom_buttons_include=1');
+    $buttonsIncludedCount = count($page->special_custom_buttons->find('special_custom_buttons_include=1'));
+    $buttonsIncludedCountAdditional = $buttonsIncludedCount + 1;
+    $buttonCalculateRemainder =  12 / $buttonsIncludedCountAdditional;
     ?>
 
 
@@ -46,12 +52,12 @@
                 </div>
 
                 <div class="column">
-                    <div class="ca-video">
+                    <div class="video-embed">
                         <iframe width="560" height="315" src="<?= $page->special_commercial; ?>" frameborder="0" allowfullscreen></iframe>
                     </div>
                 </div>
 
-        </section>
+            </section>
         <?php else : ?>
             <section>
                 <div class="column">
@@ -66,19 +72,15 @@
         <section>
             <?php foreach ($page->special_custom_buttons as $button) : ?>
                 <?php
-                    $clientColor = $page->parent->parent->client_color->title;
-                    $countButtons = count($page->special_custom_buttons->find('special_custom_buttons_include=0'));
-
+                $clientColor = $page->parent->parent->client_color->title;
+                $countButtons = count($page->special_custom_buttons->find('special_custom_buttons_include=0'));
                 ?>
 
                 <!-- Check CTA Buttons Include-->
                 <?php if (!$button->special_custom_buttons_include) : ?>
-
-
-                        <div class="column">
-                            <a href="<?= $button->special_custom_buttons_url; ?>" class="btn <?= $clientColor; ?>" target="_top"><?= $button->special_custom_buttons_text; ?></a>
-                        </div>
-
+                    <div class="column">
+                        <a href="<?= $button->special_custom_buttons_url; ?>" class="btn <?= $clientColor; ?>" target="_top"><?= $button->special_custom_buttons_text; ?></a>
+                    </div>
                 <?php endif; ?>
 
 
@@ -88,29 +90,42 @@
 
 
         <!-- Dynamic Button Row/Grid -->
-        <?php foreach ($page->specials as $special) : ?>
+
+        <section class="ca-special">
             <?php
+                $i = 0;
+            ?>
+
+            <?php foreach ($page->specials as $special) : ?>
+                <?php
                 $startDate = $special->special_start_date;
                 $convertedStartDate = strtotime($startDate);
                 $expirationDate = $special->special_end_date;
                 $convertedExpirationDate = strtotime($expirationDate);
 
-                $specialId = 1;
+                $specialId = 0;
+                // iteratator
 
                 if ($convertedStartDate <= $convertedToday && $convertedStartDate < $convertedExpirationDate && $convertedToday < $convertedExpirationDate) {
                     include("./partials/specials/special.inc.php");
                     $specialId++;
+                    $i++;
                 }
-            ?>
-        <?php endforeach; ?>
+                ?>
+                
+                <?php if($i % 2 == 0): ?>
+                    </section>
+                    <section class="ca-special">
+                <?php endif; ?>
 
+            <?php endforeach; ?>
+        </section>
 
 
         <script src="<?php echo $config->urls->templates; ?>scripts/jquery.js"></script>
         <script src="<?php echo $config->urls->templates; ?>scripts/all.min.js"></script>
         <script src="<?php echo $config->urls->templates; ?>scripts/print.min.js"></script>
 
-
-
 </body>
+
 </html>

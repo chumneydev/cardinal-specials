@@ -1,5 +1,9 @@
 <?php namespace ProcessWire;
 
+header_remove("X-Frame-Options");
+header("Access-Control-Allow-Origin: *");
+
+
 require_once wire('config')->paths->RestApi . "vendor/autoload.php";
 require_once wire('config')->paths->RestApi . "RestApiHelper.php";
 
