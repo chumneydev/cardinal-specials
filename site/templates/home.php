@@ -1,6 +1,4 @@
-<?php
-
-namespace ProcessWire; ?>
+<?php namespace ProcessWire; ?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -9,33 +7,74 @@ namespace ProcessWire; ?>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="<?= $config->urls->templates ?>styles/iziToast.min.css" />
-    <link rel="stylesheet" href="https://unpkg.com/simplebar@latest/dist/simplebar.css" />
-    <link rel="stylesheet" media="all" href="https://rawgit.com/hankchizljaw/boilerform/master/dist/css/boilerform.min.css" />
+    <link rel="stylesheet" href="https://theautohost.com/_cardinal/dist/css/cardinal.min.css" />
     <link rel="stylesheet" type="text/css" href="<?= $config->urls->templates ?>styles/iziModal.min.css" />
     <link rel="stylesheet" type="text/css" href="<?= $config->urls->templates ?>styles/dashboard.min.css" />
-
 
 </head>
 
 <body>
 
+<?php
+    $todaysDate = date("F j, Y H:i");
+    $todaysDateMinusTime = date("F j, Y");
+    $convertTodaysDate = strtotime($todaysDate);
 
+
+/*
+    $startDate = $special->special_start_date;
+    $convertedStartDate = strtotime($startDate);
+    $expirationDate = $special->special_end_date;
+    $convertedExpirationDate = strtotime($expirationDate);
+*/
+?>
 
 
     <!-- container -->
-    <div id="container">
+    <div id="ca-container">
 
-        <!-- sidebar -->
-        <div id="sidebar">
-            <p>Lorem ipsum dolor</p>
-        </div>
-        <!-- sidebar -->
 
-        <!-- main -->
-        <div id="main">
-            <p>Lorem ipsum dolor</p>
-        </div>
-        <!-- main -->
+        <?php
+            $clients = $pages->find("template=clients,parent=$page->children->children");
+            $i = 0;
+        ?>
+
+
+        <section>
+            <?php foreach ($clients as $client) : ?>
+
+                <div class="column">
+                    <div class="client">
+                        <h2><?= $client->title; ?></h2>
+
+                        <?php foreach ($client->children as $special) : ?>
+                            <p><?= $special->title; ?></p>
+
+
+                        <?php endforeach; ?>
+
+                    </div>
+                </div>
+                <?php $i++; ?>
+
+                <?php if ($i % 3 == 0) : ?>
+                    </section>
+                    <section>
+
+                <?php endif; ?>
+
+        <?php endforeach; ?>
+    </section>
+
+
+
+
+
+
+
+
+
+
 
 
     </div>
@@ -46,45 +85,15 @@ namespace ProcessWire; ?>
 
 
     <script src="<?= $config->urls->templates; ?>scripts/jquery.js"></script>
-    <script src="https://unpkg.com/vue"></script>
     <script src="<?= $config->urls->templates; ?>scripts/iziToast.min.js"></script>
-    <script src="https://unpkg.com/simplebar@latest/dist/simplebar.js"></script>
     <script src="<?= $config->urls->templates; ?>scripts/iziModal.min.js"></script>
     <script src="<?= $config->urls->templates; ?>scripts/main.js"></script>
 
 
     <script type="text/javascript">
-        //Barba.Pjax.Dom.wrapperId = 'container';
-        //Barba.Pjax.Dom.containerClass = 'wrapper';
-        //Barba.Pjax.start();
-    </script>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    <script type="text/javascript">
-
     </script>
 
 
 
 </body>
-
 </html>

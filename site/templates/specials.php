@@ -15,7 +15,7 @@ header("Access-Control-Allow-Origin: *");
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title><?= $page->title; ?></title>
     <!--<link rel="stylesheet" type="text/css" media="all" href="https://theautohost.com/_cardinal/dist/css/cardinal.css" />-->
-    <link rel="stylesheet" type="text/css" media="all" href="http://192.168.12.3:8888/internal-projects/cardinal-grid/dist/css/cardinal.css" />
+    <link rel="stylesheet" type="text/css" media="all" href="https://theautohost.com/_cardinal/dist/css/cardinal.min.css" />
     <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.7.1/css/all.css" integrity="sha384-6jHF7Z3XI3fF4XZixAuSu0gGKrXwoX/w3uFPxC56OtjChio7wtTGJWRW53Nhx6Ev" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="<?= $config->urls->templates ?>styles/specials.css" />
 
@@ -136,6 +136,42 @@ header("Access-Control-Allow-Origin: *");
         <section class="ca-special">
 
         <?php endif; ?>
+
+    <?php elseif ($page->special_layout_select->title == "Three") : ?>
+        <?php
+                    if ($convertedStartDate <= $convertedToday && $convertedStartDate < $convertedExpirationDate && $convertedToday < $convertedExpirationDate) {
+                        include("./partials/specials/special.inc.php");
+                        $specialId++;
+                        $i++;
+                    }
+        ?>
+
+        <?php if ($i % 3 == 0) : ?>
+        </section>
+        <section class="ca-special">
+
+        <?php endif; ?>
+
+
+    <?php elseif ($page->special_layout_select->title == "Four") : ?>
+        <?php
+                    if ($convertedStartDate <= $convertedToday && $convertedStartDate < $convertedExpirationDate && $convertedToday < $convertedExpirationDate) {
+                        include("./partials/specials/special.inc.php");
+                        $specialId++;
+                        $i++;
+                    }
+        ?>
+
+        <?php if ($i % 4 == 0) : ?>
+        </section>
+        <section class="ca-special">
+
+        <?php endif; ?>
+
+
+
+
+
     <?php endif; ?>
 
 

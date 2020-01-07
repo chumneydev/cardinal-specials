@@ -12,32 +12,6 @@ p {
     font-size: 14px;
 }
 
-
-#container {
-    max-width: 1800px;
-    margin: 10px auto;
-    padding: 10px;
-    min-height: 700px;
-    background: $dark-blue;
-    border-radius: 40px;
-    display: grid;
-    gap: 20px;
-    grid-template-columns: 1fr 2fr;
-    grid-template-rows: 1fr;
-    grid-template-areas: "sidebar main";
-}
-
-
-#sidebar {
-    grid-area: sidebar;
-    padding: 20px;
-}
-
-#main {
-    grid-area: main;
-    padding: 20px;
+.client {
     background: $white;
-    border-radius: 35px;
-
 }
-
