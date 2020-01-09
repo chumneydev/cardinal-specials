@@ -1,5 +1,5 @@
 on: push
-name: Publish Code
+name: Publish Code Cardinal Specials
 jobs:
   FTP-Deploy-Action:
     name: FTP-Deploy-Action
@@ -10,7 +10,7 @@ jobs:
       uses: SamKirkland/FTP-Deploy-Action@2.0.0
       env:
         FTP_SERVER: ftp.ord1-1.websitesettings.com
-        FTP_USERNAME: gitusr
+        FTP_USERNAME: gitspec
         FTP_PASSWORD: ${{ secrets.FTP_PASSWORD }}
         METHOD: sftp
         PORT: 22 
