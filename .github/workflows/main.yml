@@ -1,0 +1,17 @@
+on: push
+name: Publish Code Cardinal Specials 
+jobs:
+  FTP-Deploy-Action:
+    name: FTP-Deploy-Action
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@master
+    - name: FTP-Deploy-Action
+      uses: SamKirkland/FTP-Deploy-Action@2.0.0
+      env:
+        FTP_SERVER: ftp.ord1-1.websitesettings.com
+        FTP_USERNAME: gitspec
+        FTP_PASSWORD: ${{ secrets.FTP_PASSWORD }}
+        METHOD: sftp
+        PORT: 22 
+        ARGS: --delete --exclude-glob=.git*/** --exclude-glob=.git** --exclude-glob=main.yml
