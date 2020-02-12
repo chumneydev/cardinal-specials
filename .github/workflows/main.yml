@@ -1,5 +1,5 @@
 on: push
-name: Publish Code Cardinal Specials 
+name: Publish Code Cardinal Specials 2
 jobs:
   FTP-Deploy-Action:
     name: FTP-Deploy-Action
