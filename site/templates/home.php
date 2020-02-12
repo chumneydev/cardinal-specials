@@ -19,7 +19,7 @@
     $todaysDate = date("F j, Y H:i");
     $todaysDateMinusTime = date("F j, Y");
     $convertTodaysDate = strtotime($todaysDate);
-
+    echo "this is just a test real quick"
 
 /*
     $startDate = $special->special_start_date;
