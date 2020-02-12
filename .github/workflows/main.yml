@@ -14,4 +14,4 @@ jobs:
         FTP_PASSWORD: ${{ secrets.FTP_PASSWORD }}
         METHOD: sftp
         PORT: 22 
-        ARGS: --transfer-all --exclude-glob=.git*/** --exclude-glob=.git** --exclude-glob=main.yml
+        ARGS: --exclude-glob=.git*/** --exclude-glob=.git** --exclude-glob=main.yml
