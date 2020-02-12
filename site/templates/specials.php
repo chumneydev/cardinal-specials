@@ -88,7 +88,6 @@ header("Access-Control-Allow-Origin: *");
             <!-- End Dynamic CTA Buttons -->
         </section>
 
-
         <!-- Dynamic Button Row/Grid -->
 
         <?php

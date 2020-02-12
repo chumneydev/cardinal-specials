@@ -26,6 +26,12 @@ $routes = [
         ['GET', '{id:\d+}', Example::class, 'getModal', ["auth" => false]],
 
     ],
+    'insertoffers' => [
+        ['OPTIONS', '', RestApiHelper::class, 'preflight', ['auth' => false]],
+        ['GET', 'all', Example::class, 'getAllSpecials'],
+        ['GET', '{id:\d+}', Example::class, 'getInsertOffer', ["auth" => false]],
+
+    ],
 
     'users' => [
         ['OPTIONS', '', RestApiHelper::class, 'preflight', ['auth' => false]], // this is needed for CORS Requests

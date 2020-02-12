@@ -42,7 +42,7 @@ public static function getModal($data)
             "client" => $modal->parent->parent->name,
             "id" => $modal->id,
             "name" => $modal->name,
-            "color" => $modal->client_color->title,
+            "color" => $modal->client_color->value,
             "buttonText" => $modal->modal_button_text,
             "cookieAmount" => $modal->modal_cookie,
             "intent" => $modal->modal_intent->title,
@@ -50,7 +50,8 @@ public static function getModal($data)
             "title" => $modal->modal_title,
             "subTitle" => $modal->modal_subtitle,
             "closeOnOverlay" => $modal->modal_overlay_close->value,
-            "OverlayColor" => $modal->modal_overlay_color->title,
+            "OverlayColor" => $modal->modal_overlay_color->value,
+            "overlayOpacity" => $modal->modal_overlay_opacity->title,
             "width" => $modal->modal_width,
             "url" => $modal->httpUrl,
             //"content" => $modal->views,
@@ -64,6 +65,46 @@ public static function getModal($data)
 
         return $response;
     }
+
+
+public static function getInsertOffer($data)
+    {
+        $data = RestApiHelper::checkAndSanitizeRequiredParameters($data, ['id|int']);
+
+        $response = new \StdClass();
+        $response->offer = [];
+        $offer = wire('pages')->get($data->id);
+
+        if (!$offer->id) throw new \Exception('Offer not found');
+        array_push($response->offer, [
+            "client" => $offer->parent->parent->name,
+            "id" => $offer->id,
+            "name" => $offer->name,
+            "title" => $offer->title,
+            "color" => $offer->client_color->title,
+            "start" => $offer->special_start_date,
+            "end" => $offer->special_end_date,
+            "img" => $offer->special_image->httpUrl,
+            "body" => $offer->body,
+            "disclaimer" => $offer->special_disclaimer,
+            "buttonOne" => $offer->offer_button_text_one,
+            "buttonOneUrl" => $offer->offer_button_url_one,
+            "buttonTwo" => $offer->offer_button_text_two,
+            "buttonTwoUrl" => $offer->offer_button_url_two,
+            //"url" => $offer->httpUrl,
+        ]);
+
+        /*foreach($modal->views as $view) {
+            array_push($response->modal, [
+                'row' => $view->title,
+            ]);
+        }*/
+
+        return $response;
+    }
+
+
+
 
 
 
