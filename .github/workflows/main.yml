@@ -1,5 +1,5 @@
 on: push
-name: Publish Code Cardinal Specials 
+name: Publish Code Cardinal Specials 2
 jobs:
   FTP-Deploy-Action:
     name: FTP-Deploy-Action
@@ -14,4 +14,4 @@ jobs:
         FTP_PASSWORD: ${{ secrets.FTP_PASSWORD }}
         METHOD: sftp
         PORT: 22 
-        ARGS: --transfer-all --exclude-glob=.git*/** --exclude-glob=.git** --exclude-glob=main.yml
+        ARGS: --exclude-glob=.git*/** --exclude-glob=.git** --exclude-glob=main.yml
