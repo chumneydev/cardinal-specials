@@ -1,6 +1,4 @@
-<?php
-    namespace ProcessWire;
-?>
+<?php namespace ProcessWire; ?>
 
 <div class="column">
 

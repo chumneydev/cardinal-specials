@@ -1,0 +1,186 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap');
+
+
+body {
+    padding: 0;
+    font-family: Helvetica;
+    background: $light-grey;
+    font-family: 'Open Sans',
+    sans-serif;
+
+}
+
+.dev {
+    background: $dev;
+}
+
+p {
+    font-size: 14px;
+}
+
+
+#app {
+    display: grid;
+    grid-template-areas:
+        "header header header"
+        "sidebar clients actions"
+        "footer footer footer";
+    grid-template-columns: 1fr 2fr 1fr;
+    grid-gap: 10px;
+    padding-bottom: 20px;
+    height: 100vh;
+}
+
+
+#header {
+    grid-area: header;
+}
+#sidebar {
+    grid-area: sidebar;
+}
+
+
+#clients {
+    background: $white;
+    grid-area: clients;
+
+    & #results {
+        padding: 20px 0;
+    }
+
+    
+    & .client {
+        border-bottom: 1px solid $grey;
+        background: $white;
+        display: grid;
+        grid-template-areas: "info services date";
+        grid-template-columns: 1fr 2fr 1fr;
+        padding: 10px;
+        z-index: 1;
+
+        &:hover {
+            z-index: 10;
+        }
+
+        & .info {
+            grid-area: info;
+
+            & h1 {
+                padding: 0;
+                margin: 0;
+            }
+
+            & h2 {
+                font-weight: 400;
+                font-size: 12px;
+                padding: 0;
+                margin: 0;
+            }
+
+        }
+    
+        & ul {
+            grid-area: services;
+            justify-self: center;
+            align-self: center;
+            display: flex;
+            padding: 0 0 0 10px;
+
+            & li {
+                font-size: 12px;
+                list-style: none;
+                
+                &:first-of-type {
+                    border-top-left-radius: 10px;
+                    border-bottom-left-radius: 10px;
+                }
+                &:last-of-type {
+                    border-top-right-radius: 10px;
+                    border-bottom-right-radius: 10px;
+                }
+
+                &[data-class="modals"] {
+                    padding: 5px 10px;
+                    color: $blue;
+                    background: $lite-blue;
+                }
+                &[data-class="specials"] {
+                    padding: 5px 10px;
+                    color: $green;
+                    background: $lite-green;
+                }
+                &[data-class="slideshows"] {
+                    padding: 5px 10px;
+                    color: $orange;
+                    background: $lite-orange;
+                }
+                &[data-class="insert-offers"] {
+                    padding: 5px 10px;
+                    color: $purple;
+                    background: $lite-purple;
+                }
+
+
+
+
+            }
+        }
+    }
+
+
+
+}
+
+
+
+#actions {
+    grid-area: actions;
+}
+
+
+
+
+
+
+.flex {
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    margin: 10px 0;
+
+    & .column {
+        display: block;
+        flex-basis: 0;
+        flex-grow: 1;
+        min-width: 0;
+        max-width: 100%;
+        padding-left: 15px;
+        padding-right: 15px;
+    }
+}
+
+
+@media screen and (max-width: 850px) {
+    #app {
+        display: grid;
+        grid-template-areas:
+            "header header header"
+            "sidebar sidebar sidebar"
+            "clients clients clients"
+            "actions actions actions"
+            "footer footer footer"
+        ;
+
+
+        grid-template-columns: 1fr;
+        grid-gap: 10px;
+    }
+
+    .flex {
+        .column {
+            flex: 0 0 100%;
+            max-width: 100%;
+            margin: 0 0 10px 0;
+        }
+    }
+}

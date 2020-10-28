@@ -11,58 +11,52 @@
  */
 
 
- /*wire()->addHook("PageArray::groupBy", function(HookEvent $event) {
-	$out = array();
 
-	$args = $event->arguments();
-
-	if(count($args) == 0) throw new InvalidArgumentException("Missing arguments for function PageArray::groupBy, at least 1 required!");
-
-	$last = count($args) - 1;
-
-	$fnc = is_string($args[$last]) ? FALSE : array_pop($args);
-
-	foreach($event->object as $pg) {
-		if($fnc) {
-			$props = call_user_func_array($fnc, array_merge(array($pg), $args));
-		} else {
-			$props = array_map(function($propname) use($pg) { return $pg->{$propname}; }, $args);
-		}
-
-		$cur = &$out;
-
-		foreach($props as $prop) {
-			if(!isset($cur[$prop])) $cur[$prop] = array();
-			$cur = &$cur[$prop];
-		}
-
-		$cur[] = $pg;
-	}
-
-
-    $event->return = $out;
+/**
+ * 
+ * Louis Stephens
+ * 10/2/2020
+ * Creates the various subpages of a client once created
+ * 
+ */
 
 
 
-}); */
-
-// 01/02/20: Louis Stephens
-// Creates "Modals" and "Specials" pages when a new client is created
-$wire->addHookAfter('Pages::added(template=clients)', function(HookEvent $event) {
+wire()->addHookAfter('Pages::added(template=clients)', function(HookEvent $event) {
     $page = $event->arguments(0);
+    //bd($page);
+
+    // Create Modal
     $p = new Page();
     $p->template = "groups";
     $p->parent = wire('pages')->get($page->id);
     $p->title = "Modals";
     $p->name = "modals";
     $p->save();
-//bd($page);
+    bd($p);
 
+    // Create Specials
     $p = new Page();
     $p->template = "groups";
     $p->parent = wire('pages')->get($page->id);
     $p->title = "Specials";
     $p->name = "specials";
+    $p->save();
+
+    // Create Slideshows
+    $p = new Page();
+    $p->template = "groups";
+    $p->parent = wire('pages')->get($page->id);
+    $p->title = "Slideshows";
+    $p->name = "slideshows";
+    $p->save();
+
+    // Create Form Submissions
+    $p = new Page();
+    $p->template = "groups";
+    $p->parent = wire('pages')->get($page->id);
+    $p->title = "Submissions";
+    $p->name = "submissions";
     $p->save();
 
 
@@ -111,7 +105,7 @@ $wire->addHookAfter('Pages::added(template=clients)', function(HookEvent $event)
 
 });*/
 
-wire()->addHookBefore('InputfieldPageTable::render', function ($event) {
+/*wire()->addHookBefore('InputfieldPageTable::render', function ($event) {
     $pp = wire('pages')->get(wire('input')->get->id);
     $ptf = $event->object;
 
@@ -131,4 +125,4 @@ wire()->addHookBefore('InputfieldPageTable::render', function ($event) {
 
     //reset orphans property so that we don't get a message asking to add new pages that are now already automatically added
     $ptf->setOrphans(new pageArray());
-});
+});*/

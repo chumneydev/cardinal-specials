@@ -43,6 +43,11 @@ body p {
   padding: 10px;
 }
 
+.ca-specials p.disclaimer {
+  padding-left: 0;
+  padding-right: 0;
+}
+
 .dev-excluded {
   margin: 20px 0;
   padding: 20px;

@@ -1,7 +1,13 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap');
+
+
 body {
     padding: 0;
     font-family: Helvetica;
-    background: $light-grey;
+    background: $bg;
+    font-family: 'Open Sans',
+    sans-serif;
+
 }
 
 .dev {
@@ -12,6 +18,220 @@ p {
     font-size: 14px;
 }
 
-.client {
-    background: $white;
+
+#app {
+    display: grid;
+    grid-template-areas:
+        "header header header"
+        "sidebar clients actions"
+        "footer footer footer";
+    grid-template-columns: 1fr 4fr 1fr;
+    grid-gap: 10px;
+    padding-bottom: 20px;
+    height: 100vh;
+}
+
+
+#header {
+    grid-area: header;
+}
+#sidebar {
+    grid-area: sidebar;
+}
+
+
+#clients {
+    grid-area: clients;
+
+    & h2 {
+        margin: 10px 0 0 0;
+    }
+
+    & .controls {
+        padding: 0 15px;
+        
+
+        & #sorting {
+            display: flex;
+            justify-content: space-between;
+
+            & li {
+                list-style: none;
+
+                & a {
+                    text-decoration: none;
+                    color: $black;
+                    display: block;
+                    padding: 10px 0;
+
+                    &.mixitup-control-active {
+                        color: $blue;
+                        border-bottom: 5px solid $blue;
+                    }
+
+                    & span {
+                        font-size: 12px;
+                        margin: 0 0 0 10px;
+                        padding: 2px 12px;
+                        background: $white;
+                        border-radius: 4px;
+                    }
+                }
+            }
+        }
+
+    }
+
+
+
+    & #results {
+        display: flex;
+        flex-wrap: wrap;
+        padding: 0 0;
+        justify-content: space-between;
+    }
+
+    & .wrap {
+        flex: 1 0 25%;
+        max-width: 25%;
+        padding: 10px 5px;
+    }
+
+    & .client {
+        position: relative;
+        background: $white;
+        z-index: 1;
+        display: flex;
+        padding: 10px;
+        margin: 0 0 20px 0;
+        flex-direction: column;
+
+        &:hover {
+            z-index: 10;
+        }
+
+        & .type {
+            font-size: 32px;
+            text-align: center;
+            color: $white;
+
+            &.specials {
+                background: $green;
+            }
+            &.modals {
+                background: $purple;
+            }
+            &.slideshows {
+                background: $orange;
+            }
+            &.insert-offers {
+                background: $blue;
+            }
+        }
+    
+        
+    }
+
+
+
+}
+
+
+
+#actions {
+    grid-area: actions;
+}
+
+
+
+
+
+
+.flex {
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    margin: 10px 0;
+
+    & .column {
+        display: block;
+        flex-basis: 0;
+        flex-grow: 1;
+        min-width: 0;
+        max-width: 100%;
+        padding-left: 15px;
+        padding-right: 15px;
+    }
+}
+
+
+@media screen and (max-width: 850px) {
+    #app {
+        display: grid;
+        grid-template-areas:
+            "header header header"
+            "sidebar sidebar sidebar"
+            "clients clients clients"
+            "actions actions actions"
+            "footer footer footer"
+        ;
+
+
+        grid-template-columns: 1fr;
+        grid-gap: 10px;
+    }
+
+    .flex {
+        .column {
+            flex: 0 0 100%;
+            max-width: 100%;
+            margin: 0 0 10px 0;
+        }
+    }
+}
+
+
+@media (max-width: 2400px) {
+
+    & .wrap {
+        flex: 1 0 20%;
+        max-width: 20%;
+    }
+
+}
+
+@media (max-width: 1185px) {
+
+    & .wrap {
+        flex: 1 0 25%;
+        max-width: 25%;
+    }
+
+}
+
+@media (max-width: 985px) {
+
+    & .wrap {
+        flex: 1 0 33.3333%;
+        max-width: 33.3333%;
+    }
+
+}
+
+@media (max-width: 790px) {
+
+    & .wrap {
+        flex: 1 0 50%;
+        max-width: 50%;
+    }
+
+}
+
+@media (max-width: 600px) {
+
+    & .wrap {
+        flex: 1 0 100%;
+        max-width: 100%;
+    }
+
 }

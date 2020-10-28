@@ -1,9 +1,67 @@
-<?php namespace ProcessWire;
-header('Content-Type: application/json');
-header('Access-Control-Allow-Origin: *');
+<?php
+    namespace ProcessWire;
+    header('Content-Type: application/json');
+    header('Access-Control-Allow-Origin: *');
+
+    
+    
+    if($input->urlSegment == 'process-offer'){
+
+        $mail = wireMail();
+        $fullName = $sanitizer->text($_POST['fullname']);
+        $email = $sanitizer->text($_POST['email']);
+        $phone = $sanitizer->text($_POST['phone']);
+        $comments = $sanitizer->text($_POST['comments']);
+    
+        $subject = "Chumney & Associates";
+        $dealerAddress = $sanitizer->text($_POST['crmEmail']);
+        $redirectUrl = $sanitizer->text($_POST['redirectUrl']);
+        $textBody = "
+            <?XML VERSION=\"1.0\" encoding=\"UTF-8\"?>
+            <?ADF VERSION=\"1.0\"?>
+            <adf>
+                <prospect>
+                    <customer>
+                        <contact>
+                            <name part=\"full\">$fullName</name>
+                            <email>$email</email>
+                            <phone>$phone</phone>
+                            <comments>$comments</comments>
+                        </contact>
+                    </customer>
+                </prospect>
+
+                <vendor>
+                    <vendorname>Toyota of Greer</vendorname>
+                </vendor>
+
+            <provider>
+                <name part=\"full\">Chumney & Associates</name>
+                <url>http://www.chumneyads.com</url>
+            </provider>
+        </adf>";
+    
+        $options = array(
+            'sendSingle' => true,
+        );
+
+        $numSent = wireMail($dealerAddress, '', $subject, $textBody, $options);
+        if($numSent) {
+            $redirect = "";
+            $redirect .= "<script type=\"text/javascript\">";
+            $redirect .= "top.window.location = '{$redirectUrl}';";
+            $redirect .= "</script>";
+            echo $redirect;
+
+        }
+    
+    }
 
 
-if($input->urlSegment == 'get-clients'){
+
+
+
+/*if($input->urlSegment == 'get-clients'){
     
     $clients = $pages->find("template=clients");
     $client_array = array();
@@ -81,7 +139,7 @@ foreach ($events as $event) {
 }
 
 $events_json = json_encode($events_array, true);
-echo $events_json;
+echo $events_json;*/
 
 
 /*$query = [

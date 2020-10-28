@@ -1,8 +1,6 @@
 <?php
-
-namespace ProcessWire;
-
-header('Access-Control-Allow-Origin: *');
+    namespace ProcessWire;
+    header('Access-Control-Allow-Origin: *');
 ?>
 
 <!DOCTYPE html>

@@ -15,6 +15,9 @@ site/init.php
 htaccess-3.0.143.txt
 composer.json
 index.php
+.index-*
+.wire-*
+.htaccess-*
 CONTRIBUTING.md
 LICENSE.TXT
 site/config.php

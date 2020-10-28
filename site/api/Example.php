@@ -53,6 +53,7 @@ public static function getModal($data)
             "OverlayColor" => $modal->modal_overlay_color->value,
             "overlayOpacity" => $modal->modal_overlay_opacity->title,
             "width" => $modal->modal_width,
+            "content" => $modal->title,
             "url" => $modal->httpUrl,
             //"content" => $modal->views,
         ]);
@@ -74,17 +75,25 @@ public static function getInsertOffer($data)
         $response = new \StdClass();
         $response->offer = [];
         $offer = wire('pages')->get($data->id);
+        //echo $offer->special_image->first->url;
 
         if (!$offer->id) throw new \Exception('Offer not found');
         array_push($response->offer, [
             "client" => $offer->parent->parent->name,
+            "clientId" => $offer->parent->parent->id,
+            "email" => $offer->parent->parent->dealer_email,
+            "redirect" => $offer->parent->parent->redirect_url,
             "id" => $offer->id,
+            "providerName" =>  $offer->provider->title,
+            "providerDiv" =>  $offer->provider->value,
+            "providerNameMobile" =>  $offer->provider_mobile->title,
+            "providerDivMobile" =>  $offer->provider_mobile->value,
             "name" => $offer->name,
             "title" => $offer->title,
             "color" => $offer->client_color->title,
             "start" => $offer->special_start_date,
             "end" => $offer->special_end_date,
-            "img" => $offer->special_image->httpUrl,
+            "img" => $offer->special_image->first->httpUrl,
             "body" => $offer->body,
             "disclaimer" => $offer->special_disclaimer,
             "buttonOne" => $offer->offer_button_text_one,

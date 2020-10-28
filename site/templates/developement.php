@@ -14,15 +14,26 @@
 
 <div class="dev">
     <?php
-	$count = -1;
+	/*$count = -1;
 
 	foreach($page->images as $photo) {
 		echo "<li uk-slideshow-item='{$count}'><a href='#'><img src='{$photo->size(150,100)->url}'  alt=''></a></li>";
 		$count++;
-	}
-
-
+    }*/
+    
+    //echo 'hel';
+    
+    //bd($modules->isInstalled('FormTemplateProcessor'));
 	?>
+
+    <form id="ca-form">
+        <?= $page->form_select; ?>
+    
+    
+    </form>
+
+
+
 </div>
 
 
@@ -44,15 +55,6 @@
 <?php
 
 
-$forms = $page->form_select_fields;
-foreach($forms as $form) {
-    if($form->name === "form_input") {
-        //output input with custom name
-    }
-    elseif($form->name === "form_textarea") {
-        //output input with custom name
-    }
-}
 
 
 
@@ -72,7 +74,7 @@ foreach($forms as $form) {
 
 
 
-/*$stefan = new person();
+/*$stefan = new person());
 $jimmy = new person;
 
 $stefan->set_name("Stefan Mischook");
@@ -96,7 +98,7 @@ echo "Stefan's full name: ".$stefan->get_name();
 </div>
 
 
-https://domain.com/?title=title&intent=intent&cookie=cookie&width=width&color=color&opacity=opacity&transition=transition
+<!--https://domain.com/?title=title&intent=intent&cookie=cookie&width=width&color=color&opacity=opacity&transition=transition
 
 
 
@@ -118,9 +120,29 @@ $modalOverlayInclude = $page->parent->modal_overlay->value;
 $modalOverlayColor = $page->parent->modal_overlay_color->value;
 $modalOverlayOpacity = $page->parent->modal_overlay_opacity->title;
 $modalOverlayClose = $page->parent->modal_overlay_close->value;
-$modalTransition = $page->parent->modal_transition->title;
+$modalTransition = $page->parent->modal_transition->title;-->
 
 
+
+<script type="text/javascript" src="https://theautohost.com/projects/chatus/dist/js/jquery.js"></script>
+
+<script type="text/javascript">
+    var jsonObj = [];
+        $(":input").each(function(){
+            var key = $(this).attr('name');
+            var val = $(this).val();
+            item = {}
+            item [key] = val;
+
+            jsonObj.push(item);
+        });
+        console.log(jsonObj);
+
+    var data = $('#ca-form').serialize();
+    console.log(data);
+
+
+</script>
 
 
 </body>

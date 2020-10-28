@@ -2,8 +2,23 @@ $white: #FFFFFF;
 $black: #000000;
 $light-grey: #f5f5f5;
 
-$light-blue: #e7f6fe;
-$dark-blue: #2d3748;
+$blue: #006ce2;
+$lite-blue: lighten($blue, 50%);
+
+$green: #00a58e;
+$lite-green: lighten($green, 50%);
+
+$purple: #be00df;
+$lite-purple: lighten($purple, 50%);
+
+$orange: #ea5015;
+$lite-orange: #fef1ed;
+
+$bg: #edf2fe;
 
 
 $dev: #ffbe0f;
+
+$main-accent: #e82e47;
+
+$grey: #f2f2f2;

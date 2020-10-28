@@ -4,7 +4,7 @@
 	<h2><?php echo $page->title; ?></h2>
 	<p>This page is using barba.js for ajax transitions.</p>
 
-<div class="special">
+<div class="item">
 
 </div>
 

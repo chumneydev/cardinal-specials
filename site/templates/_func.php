@@ -261,7 +261,7 @@ function generateSpecialsList($specialTemplate) {
 			  <i class=\"far fa-plus fa-stack-1x\"></i>
 		  </span></a>
 			<div class=\"item-item\">
-			  <h4 data-page-status=\"unpublished\">{$specialTitle}</h4>
+			  <h4 >{$specialTitle}</h4>
 			  <ul class=\"item-actions\">
 				  <li><a href=\"#\"><i class=\"far fa-pause\"></i></a></li>
 				  <li><a href=\"#\"><i class=\"far fa-minus-circle\"></i></a></li>

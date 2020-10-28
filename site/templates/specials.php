@@ -100,20 +100,22 @@ header("Access-Control-Allow-Origin: *");
                 <?php
                 $startDate = $special->special_start_date;
                 $convertedStartDate = strtotime($startDate);
+                bd($convertedStartDate);
                 $expirationDate = $special->special_end_date;
                 $convertedExpirationDate = strtotime($expirationDate);
                 $specialId = 0;
+                bd($convertedExpirationDate)
                 // iteratator
                 ?>
 
 
                 <?php if ($page->special_layout_select->title == "Single") : ?>
                     <?php
-                    if ($convertedStartDate <= $convertedToday && $convertedStartDate < $convertedExpirationDate && $convertedToday < $convertedExpirationDate) {
-                        include("./partials/specials/special.inc.php");
-                        $specialId++;
-                        $i++;
-                    }
+                        if ($convertedStartDate <= $convertedToday && $convertedStartDate < $convertedExpirationDate && $convertedToday < $convertedExpirationDate) {
+                            include("./partials/specials/special.inc.php");
+                            $specialId++;
+                            $i++;
+                        }
                     ?>
 
                     <?php if ($i % 1 == 0) : ?>
@@ -121,12 +123,12 @@ header("Access-Control-Allow-Origin: *");
         <section class="ca-special">
         <?php endif; ?>
 
-    <?php elseif ($page->special_layout_select->title == "Double") : ?>
-        <?php
-                    if ($convertedStartDate <= $convertedToday && $convertedStartDate < $convertedExpirationDate && $convertedToday < $convertedExpirationDate) {
-                        include("./partials/specials/special.inc.php");
-                        $specialId++;
-                        $i++;
+        <?php elseif ($page->special_layout_select->title == "Double") : ?>
+            <?php
+                if ($convertedStartDate <= $convertedToday && $convertedStartDate < $convertedExpirationDate && $convertedToday < $convertedExpirationDate) {
+                    include("./partials/specials/special.inc.php");
+                    $specialId++;
+                    $i++;
                     }
         ?>
 

@@ -1,7 +1,9 @@
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap");
 body {
   padding: 0;
   font-family: Helvetica;
-  background: #f5f5f5;
+  background: #edf2fe;
+  font-family: 'Open Sans', sans-serif;
 }
 
 .dev {
@@ -12,8 +14,181 @@ p {
   font-size: 14px;
 }
 
-.client {
+#app {
+  display: grid;
+  grid-template-areas: "header header header" "sidebar clients actions" "footer footer footer";
+  grid-template-columns: 1fr 4fr 1fr;
+  grid-gap: 10px;
+  padding-bottom: 20px;
+  height: 100vh;
+}
+
+#header {
+  grid-area: header;
+}
+
+#sidebar {
+  grid-area: sidebar;
+}
+
+#clients {
+  grid-area: clients;
+}
+
+#clients h2 {
+  margin: 10px 0 0 0;
+}
+
+#clients .controls {
+  padding: 0 15px;
+}
+
+#clients .controls #sorting {
+  display: flex;
+  justify-content: space-between;
+}
+
+#clients .controls #sorting li {
+  list-style: none;
+}
+
+#clients .controls #sorting li a {
+  text-decoration: none;
+  color: #000000;
+  display: block;
+  padding: 10px 0;
+}
+
+#clients .controls #sorting li a.mixitup-control-active {
+  color: #006ce2;
+  border-bottom: 5px solid #006ce2;
+}
+
+#clients .controls #sorting li a span {
+  font-size: 12px;
+  margin: 0 0 0 10px;
+  padding: 2px 12px;
   background: #FFFFFF;
+  border-radius: 4px;
+}
+
+#clients #results {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 0 0;
+  justify-content: space-between;
+}
+
+#clients .wrap {
+  flex: 1 0 25%;
+  max-width: 25%;
+  padding: 10px 5px;
+}
+
+#clients .client {
+  position: relative;
+  background: #FFFFFF;
+  z-index: 1;
+  display: flex;
+  padding: 10px;
+  margin: 0 0 20px 0;
+  flex-direction: column;
+}
+
+#clients .client:hover {
+  z-index: 10;
+}
+
+#clients .client .type {
+  font-size: 32px;
+  text-align: center;
+  color: #FFFFFF;
+}
+
+#clients .client .type.specials {
+  background: #00a58e;
+}
+
+#clients .client .type.modals {
+  background: #be00df;
+}
+
+#clients .client .type.slideshows {
+  background: #ea5015;
+}
+
+#clients .client .type.insert-offers {
+  background: #006ce2;
+}
+
+#actions {
+  grid-area: actions;
+}
+
+.flex {
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+  margin: 10px 0;
+}
+
+.flex .column {
+  display: block;
+  flex-basis: 0;
+  flex-grow: 1;
+  min-width: 0;
+  max-width: 100%;
+  padding-left: 15px;
+  padding-right: 15px;
+}
+
+@media screen and (max-width: 850px) {
+  #app {
+    display: grid;
+    grid-template-areas: "header header header" "sidebar sidebar sidebar" "clients clients clients" "actions actions actions" "footer footer footer";
+    grid-template-columns: 1fr;
+    grid-gap: 10px;
+  }
+  .flex .column {
+    flex: 0 0 100%;
+    max-width: 100%;
+    margin: 0 0 10px 0;
+  }
+}
+
+@media (max-width: 2400px) {
+  .wrap {
+    flex: 1 0 20%;
+    max-width: 20%;
+  }
+}
+
+@media (max-width: 1185px) {
+  .wrap {
+    flex: 1 0 25%;
+    max-width: 25%;
+  }
+}
+
+@media (max-width: 985px) {
+  .wrap {
+    flex: 1 0 33.3333%;
+    max-width: 33.3333%;
+  }
+}
+
+@media (max-width: 790px) {
+  .wrap {
+    flex: 1 0 50%;
+    max-width: 50%;
+  }
+}
+
+@media (max-width: 600px) {
+  .wrap {
+    flex: 1 0 100%;
+    max-width: 100%;
+  }
 }
 
 @media screen and (max-width: 768px) {
